@@ -9,6 +9,7 @@
   %li
     Released on:
     = @movie.release_date.strftime("%B %d, %Y")
+  %th=link_to 'Movie Title', :sort=> 'movie title'
 
 %h3 Description:
 

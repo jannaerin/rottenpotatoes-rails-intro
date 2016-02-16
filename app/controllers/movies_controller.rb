@@ -34,11 +34,11 @@ class MoviesController < ApplicationController
     end
     
     if @redirect == true
+      puts "IN REDIRECT \n"
       flash.keep
       redirect_to movies_path(:sort => @sort, :ratings => @ratings)
       return
     end
-    
     
     if @sort == 'title'
       @movies = Movie.where(:rating => @ratings.keys).order('title')

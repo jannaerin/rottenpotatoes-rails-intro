@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
       @redirect = true
     end
     
-    if @redirect
+    if @redirect == true
       flash.keep
       redirect_to movies_path(:sort => @sort, :ratings => @ratings)
       return

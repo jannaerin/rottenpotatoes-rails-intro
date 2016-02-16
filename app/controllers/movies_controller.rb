@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
     if params[:ratings]
       @ratings = params[:ratings]
       session[:ratings] = params[:ratings]
-    else
+    elsif session[:ratings]
       @ratings = session[:ratings]
       params[:ratings] = @ratings
       @redirect = true
@@ -27,14 +27,13 @@ class MoviesController < ApplicationController
     if params[:sort]
       @sort = params[:sort]
       session[:sort] = params[:sort]
-    else
+    elsif session[:sort]
       @sort = session[:sort]
       params[:sort] = @sort
       @redirect = true
     end
     
     if @redirect == true
-      puts "IN REDIRECT \n"
       flash.keep
       redirect_to movies_path(:sort => @sort, :ratings => @ratings)
       return

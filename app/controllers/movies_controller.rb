@@ -24,7 +24,6 @@ class MoviesController < ApplicationController
     else
       @ratings = @all_ratings
       params[:ratings] = @ratings
-      @redirect = true
     end
       
     if params[:sort]

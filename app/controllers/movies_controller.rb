@@ -12,7 +12,6 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
-    @ratings = @all_ratings
     @redirect = false
     
     if params[:ratings]
@@ -23,7 +22,7 @@ class MoviesController < ApplicationController
       params[:ratings] = @ratings
       @redirect = true
     else
-      @ratings = @all_ratings
+      @ratings = Hash[*@all_ratings.map {|k| [k, 1]}.flatten]
     end
       
     if params[:sort]

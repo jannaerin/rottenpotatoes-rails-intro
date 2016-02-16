@@ -22,6 +22,8 @@ class MoviesController < ApplicationController
       @ratings = session[:ratings]
       params[:ratings] = @ratings
       @redirect = true
+    else
+      @ratings = @all_ratings
     end
       
     if params[:sort]
@@ -31,6 +33,8 @@ class MoviesController < ApplicationController
       @sort = session[:sort]
       params[:sort] = @sort
       @redirect = true
+    else
+      @sort = nil
     end
     
     if @redirect == true

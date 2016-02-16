@@ -12,18 +12,16 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = Movie.all_ratings
+    @ratings = @all_ratings
     @redirect = false
     
     if params[:ratings]
       @ratings = params[:ratings]
       session[:ratings] = params[:ratings]
-    elsif session[:ratings]
+    else
       @ratings = session[:ratings]
       params[:ratings] = @ratings
       @redirect = true
-    else
-      @ratings = @all_ratings
-      params[:ratings] = @ratings
     end
       
     if params[:sort]
